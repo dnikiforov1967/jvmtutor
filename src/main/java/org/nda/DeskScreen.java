@@ -3,21 +3,16 @@ package org.nda;
 
 import org.nda.awt.mem.FillMemoryButton;
 import org.nda.awt.MainFrame;
-import org.nda.awt.thr.ThreadStartButton;
-import org.nda.awt.thr.ThreadStopButton;
+import org.nda.awt.thr.*;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-
-import static org.nda.beans.mem.ObjectsKeeper.KEEPER;
-import static org.nda.beans.thr.ThreadsKeeper.THREADS_KEEPER;
 
 public class DeskScreen {
     public static void main(final String... args) {
 
         MainFrame screen = new MainFrame();
-        screen.setSize(400, 400);
-        screen.setVisible(true);
+        screen.setSize(800, 800);
         screen.setLayout(null);
 
         FillMemoryButton fillMemoryButton = new FillMemoryButton();
@@ -32,6 +27,19 @@ public class DeskScreen {
         threadStopButton.setBounds(280,70,250,30);
         screen.add(threadStopButton);
 
+        BlockerStartButton blockerStartButton = new BlockerStartButton();
+        blockerStartButton.setBounds(20,120,250,30);
+        screen.add(blockerStartButton);
+
+        BlockerStopButton blockerStopButton = new BlockerStopButton();
+        blockerStopButton.setBounds(280,120,250,30);
+        screen.add(blockerStopButton);
+
+        BlockeeStartButton blockeeStartButton = new BlockeeStartButton();
+        blockeeStartButton.setBounds(540,120,250,30);
+        screen.add(blockeeStartButton);
+
+        screen.setVisible(true);
 
 
         screen.addWindowListener(new WindowAdapter() {

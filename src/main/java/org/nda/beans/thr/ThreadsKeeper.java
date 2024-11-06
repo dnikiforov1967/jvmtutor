@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 public enum ThreadsKeeper {
     THREADS_KEEPER;
 
-    private Thread regularThread;
+    private volatile Thread regularThread;
 
     public synchronized void initiateRegularThread() {
         if (Objects.isNull(regularThread) || !regularThread.isAlive()) {
